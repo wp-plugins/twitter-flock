@@ -41,5 +41,5 @@ You can find more informations about this plugin on <a href="http://www.workshop
 
 - Sidebar widget
 - No need for inlude line in header
-- Avatar is taken from first post
+- Fixes problem with new avatar appereance
 
