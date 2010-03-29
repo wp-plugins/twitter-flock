@@ -1,5 +1,5 @@
 === Twitter Flock ===
-Contributors: Ivan Lazarevic
+Contributors: kopipejst
 Tags: twitter, sidebar
 Requires at least: 2.3 
 Tested up to: 2.8
@@ -36,6 +36,10 @@ You can find more informations about this plugin on <a href="http://www.workshop
 3. Sidebar widget
 
 == Changelog ==
+
+= 1.2 =
+- Header title
+- Option for exclude jQuery in case of conflict
 
 = 1.1 =
 

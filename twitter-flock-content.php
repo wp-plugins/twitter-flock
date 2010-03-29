@@ -3,7 +3,7 @@
 Plugin Name: Twitter Flock
 Plugin URI: http://workshop.rs/2010/02/twitter-flock-for-wordpress-multiple-accounts-tweets-with-style/
 Description: Displaying tweets from multiple accounts with caching and different color scheme for every account. With sidebar widget feature.
-Version: 1.1
+Version: 1.2
 Author: Ivan Lazarevic
 Author URI: http://workshop.rs
 */
@@ -38,9 +38,11 @@ function tf_head(){
 	$path =  get_bloginfo('wpurl')."/wp-content/plugins/twitter-flock/";
 
 	$script = "
-		<link rel=\"stylesheet\" href=\"".$path."css/twitter-flock.css.php\" type=\"text/css\" media=\"screen\" charset=\"utf-8\"/>
-		<script type=\"text/javascript\" src=\"".$path."scripts/jquery-1.3.2.js\"></script>
-	";
+		<link rel=\"stylesheet\" href=\"".$path."css/twitter-flock.css.php\" type=\"text/css\" media=\"screen\" charset=\"utf-8\"/>";
+	
+	if(!get_option('tf_jquery')){	
+		$script .=	"<script type=\"text/javascript\" src=\"".$path."scripts/jquery-1.3.2.js\"></script>";
+	}
 
 	echo $script;
 }
@@ -80,6 +82,8 @@ class TwitterFlockStart {
 			$data = $this->tf_getData();
 		
 		echo "<div id='twitter-flock'>";
+		echo "<h2 id='twitter-flock-title'>".get_option('tf_title')."</h2>";
+		
 			if(get_option('tf_tabs') != "")
 				$this->tf_printHeader($data);
 			$this->tf_printData($data);

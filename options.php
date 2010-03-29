@@ -33,9 +33,15 @@ $ch = '';
 			<input type="text" id="hashes" name="tf_hashes" class="tf_input" value="<?php echo get_option('tf_hashes'); ?>" />
 			<span class="desc">List of hashes that post which you want to be displayed contains separated with ",". e.g. <i>#ws,#in</i></span>								
 		</div>
+		
+		<div class="formrow">		
+			<label for="hashes">Header title:</label>
+			<input type="text" id="hashes" name="tf_title" class="tf_input" value="<?php echo get_option('tf_title'); ?>" />
+			<span class="desc">Title in header before Twitter posts.</span>								
+		</div>		
 
 		<div class="formrow">		
-			<label for="number">Nubmer of Posts:</label>
+			<label for="number">Number of Posts:</label>
 			<input type="text" id="number" name="tf_number" class="tf_input" value="<?php echo get_option('tf_number'); ?>" />
 			<span class="desc">Total number of posts for all usernames ( 15 by default )</span>								
 		</div>	
@@ -89,9 +95,15 @@ $ch = '';
 			<span class="desc">Using cache will improve your page load. Data will be saved in cache every minute.</span>				
 		</div>
 
+		<div class="formrow">		
+			<label>Don't include jQuery</label>
+			<?php if(get_option('tf_jquery') != ""){ $ch = "checked=''"; } else { $ch = ''; }?>
+			<input type="checkbox" id="jquery" name="tf_jquery" <?php echo $ch ?> />
+			<span class="desc">Check this if there is jQuery conflict.</span>					
+		</div>
 
 		<input type="hidden" name="action" value="update" />
-        <input type="hidden" name="page_options" value="tf_usernames,tf_colors,tf_bgcolors,tf_hashes,tf_number,tf_photos,tf_screennames,tf_https,tf_chashes,tf_removehashes,tf_tabs,tf_cache" />
+        <input type="hidden" name="page_options" value="tf_usernames,tf_colors,tf_bgcolors,tf_hashes,tf_number,tf_photos,tf_screennames,tf_https,tf_chashes,tf_removehashes,tf_tabs,tf_cache,tf_jquery,tf_title" />
 		
 		<input type="submit" class="button-primary" value="Save Settings" />
 	
