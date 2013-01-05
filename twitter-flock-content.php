@@ -3,7 +3,7 @@
 Plugin Name: Twitter Flock
 Plugin URI: http://workshop.rs/2010/02/twitter-flock-for-wordpress-multiple-accounts-tweets-with-style/
 Description: Displaying tweets from multiple accounts with caching and different color scheme for every account. With sidebar widget feature.
-Version: 1.2
+Version: 1.2.1
 Author: Ivan Lazarevic
 Author URI: http://workshop.rs
 */
@@ -59,7 +59,7 @@ class TwitterFlockStart {
 	private $hashes;
 	private $avatars;
 
-	private $T_URL 	  = "http://twitter.com/statuses/user_timeline/";
+	private $T_URL 	  = "http://api.twitter.com/1/statuses/user_timeline";
 	private $T_FORMAT = ".xml";
 	private $T_CACHE;
 
@@ -138,7 +138,8 @@ class TwitterFlockStart {
 		
 		foreach ($this->users as $key=>$name){
 			
-			$url = $this->T_URL.$name.$this->T_FORMAT;
+			$url = $this->T_URL.$this->T_FORMAT.'?include_entities=true&include_rts=true&screen_name='.$name;
+			//$url = https://api.twitter.com/1/statuses/user_timeline.xml?include_entities=true&include_rts=true&screen_name=kopipejst
 			$xml = @simplexml_load_file($url);
 
 			/* if there is error in Twitter response force data from Cache */

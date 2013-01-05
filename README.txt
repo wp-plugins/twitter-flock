@@ -2,7 +2,7 @@
 Contributors: kopipejst
 Tags: twitter, sidebar
 Requires at least: 2.3 
-Tested up to: 2.8
+Tested up to: 3.5
 Stable tag: trunk
 
 Displaying tweets from multiple accounts with caching and different color scheme for every account. With sidebar widget feature.
@@ -36,6 +36,9 @@ You can find more informations about this plugin on <a href="http://www.workshop
 3. Sidebar widget
 
 == Changelog ==
+
+= 1.2.1 =
+- Twitter API URL format is changed
 
 = 1.2 =
 - Header title
